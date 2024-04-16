@@ -7,12 +7,13 @@ from sklearn.cluster import KMeans
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import json
+import os
 
 
 # ----------------- openai -----------------
 
-api_key = "dd9dd719aeee4118bd601f4310318671"
-endpoint = "https://oh-ai-openai-scu.openai.azure.com/"
+api_key = os.getenv("OPENAI_API_KEY")
+endpoint = os.getenv("OPENAI_ENDPOINT")
 
 client = AzureOpenAI(api_key=api_key, api_version="2023-05-15", azure_endpoint=endpoint)
 deployment_name = "gpt-35-turbo"
